@@ -9,6 +9,10 @@
     <script>
         AFRAME.registerComponent('move-camera', {
             init: function moveCamera() {
+
+                // Arrow Button Variables
+                    // "b1" b stands for button | 1 is the number
+                    // Add new variables if new slides are being added 
                 const b1 = document.querySelector('#a1');
                 const b2 = document.querySelector('#a2');
                 const b3 = document.querySelector('#a3');
@@ -31,10 +35,12 @@
                 // const b20 = document.querySelector('#a20');
                 // const b21 = document.querySelector('#a21');
                 // const b22 = document.querySelector('#a22');
+
+                // Camera Variable
+
                 const cam = document.querySelector("#camera");
 
-
-
+                // Arrow Button Event Listeners
 
                 b1.addEventListener('click', function (evt) {
                     cam.emit(`startanim001`, null, false);
@@ -180,11 +186,6 @@
                         'startEvents': 'startanim0018'
                     });
                 });
-                var xwing = document.querySelector("#xwing");
-                var cam1 = document.querySelector("#camera1");
-                xwing.addEventListener("click", function(evt) {
-                cam1.setAttribute("camera", "active", true);
-                });
                 // b19.addEventListener('click', function (evt) {
                 //     cam.emit(`startanim0019`, null, false);
                 //     cam.setAttribute('animation__a19', {
@@ -218,14 +219,21 @@
                 //     });
                 // });
 
-
+                // var xwing = document.querySelector("#xwing");
+                // var cam1 = document.querySelector("#camera1");
+                // xwing.addEventListener("click", function(evt) {
+                // cam1.setAttribute("camera", "active", true);
+                // });
             }
         });
     </script>
 
     <a-scene move-camera>
         <a-assets>
+
             <!-- Images -->
+
+            <!-- Add new slides by inserting the img link along with slide id -->
             <img id="slide1" src="/img/1.png" alt="1">
             <img id="slide2" src="/img/2.png" alt="2">
             <img id="slide3" src="/img/3.png" alt="3">
@@ -241,22 +249,27 @@
             <img id="spaceBg" crossorigin="anonymous"
                 src="/img/RenderCrate-HDRI_Orbital_68_prev_lg.jpg">
             <img id="moon_texture" src="https://aframe.io/sample-assets/assets/images/space/moon_1024.jpg" alt="moon">
+            
             <!-- Assets -->
+
             <a-asset-item id="xwing" src="/assets/xwing_anim.gltf"></a-asset-item>
             <a-asset-item id="astroids" src="/assets/astroids.gltf"></a-asset-item>
             <a-asset-item id="astronaut" src="/assets/low-poly_falling_astronaut_-_3december.glb"></a-asset-item>
             <a-asset-item id="aframe" src="/assets/aframe.glb"></a-asset-item>
 
-
-
         </a-assets>
+
         <!-- Camera w/ VR Controls -->
+
         <a-entity id="cameraRig" movement-controls position="0 .3 -1.5">
+
+            <!-- Place the animations referenced in the script above inside your a-camera component -->
             <a-camera id="camera" animation__a1 animation__a2 animation__a3 animation__a4 animation__a5 animation__a6
                 animation__a7 animation__a8 animation__a9 animation__a10 animation__a11 animation__a12 animation__a13
                 animation__a14 animation__a15 animation__a16 animation__a17 animation__a18 look-controls="enabled: false" cursor="rayOrigin: mouse"></a-camera>
 
             <!-- Motion Controllers -->
+
             <!-- Left -->
             <a-entity oculus-touch-controls="hand: left; model:true"></a-entity>
             <!-- Right -->
@@ -267,14 +280,20 @@
             animation="property: rotation; to: 0 360 0; loop: true; dur: 1000000; easing: linear"></a-sky>
 
         <!-- Slides -->
+
+        <!-- Slide 1 -->
         <a-plane position="0 1.843 -2.663" scale="1.947 1 1" material="src: #slide1" geometry="" rotation="">
-            <!-- Navigation -->
+            <!-- Navigation
+            The Arrow Button Navigation is a child of the Slide (a-plane) -->
             <a-entity id="a1" geometry="primitive: plane"
                 animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter; dur: 200"
                 animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 200"
                 material="src: #arrow; side: back; transparent: true" position="0.70446 -0.006 -0.05926"
                 scale="0.16726 0.36777 -0.105"></a-entity>
         </a-plane>
+
+        <!-- Slide 2 -->
+
         <a-plane position="10 1.843 -2.663" scale="1.947 1 1" material="src: #slide2" geometry="" rotation="">
             <a-entity id="a2" geometry="primitive: plane"
                 animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter; dur: 200"
@@ -287,6 +306,9 @@
                 material="src: #arrow; side: back; transparent: true" position="0.70446 -0.006 -0.05926"
                 scale="0.16726 0.36777 -0.105"></a-entity></a-entity>
         </a-plane>
+
+        <!-- Slide 3  -->
+
         <a-plane position="20 1.843 -2.663" scale="1.947 1 1" material="src:#slide3" geometry="" rotation="">
             <a-entity id="a4" geometry="primitive: plane"
                 animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter; dur: 200"
@@ -299,6 +321,9 @@
                 material="src: #arrow; side: back; transparent: true" position="0.70446 -0.006 -0.05926"
                 scale="0.16726 0.36777 -0.105"></a-entity></a-entity>
         </a-plane>
+
+        <!-- Slide 4  -->
+
         <a-plane position="30 1.843 -2.663" scale="1.947 1 1" material="src: #slide4" geometry="" rotation="">
             <a-entity id="a6" geometry="primitive: plane"
                 animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter; dur: 200"
@@ -311,6 +336,9 @@
                 material="src: #arrow; side: back; transparent: true" position="0.70446 -0.006 -0.05926"
                 scale="0.16726 0.36777 -0.105"></a-entity></a-entity>
         </a-plane>
+
+        <!-- Slide 5  -->
+
         <a-plane position="40 1.843 -2.663" scale="1.947 1 1" material="src: #slide5" geometry="" rotation="">
             <a-entity id="a8" geometry="primitive: plane"
                 animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter; dur: 200"
@@ -323,6 +351,9 @@
                 material="src: #arrow; side: back; transparent: true" position="0.70446 -0.006 -0.05926"
                 scale="0.16726 0.36777 -0.105"></a-entity></a-entity>
         </a-plane>
+
+        <!-- Slide 6  -->
+
         <a-plane position="50 1.843 -2.663" scale="1.947 1 1" material="src: #slide6" geometry="" rotation="">
             <a-entity id="a10" geometry="primitive: plane"
                 animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter; dur: 200"
@@ -335,6 +366,9 @@
                 material="src: #arrow; side: back; transparent: true" position="0.70446 -0.006 -0.05926"
                 scale="0.16726 0.36777 -0.105"></a-entity></a-entity>
         </a-plane>
+
+        <!-- Slide 7  -->
+
         <a-plane position="60 1.843 -2.663" scale="1.947 1 1" material="src: #slide7" geometry="" rotation="">
             <a-entity id="a12" geometry="primitive: plane"
                 animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter; dur: 200"
@@ -347,6 +381,9 @@
                 material="src: #arrow; side: back; transparent: true" position="0.70446 -0.006 -0.05926"
                 scale="0.16726 0.36777 -0.105"></a-entity></a-entity>
         </a-plane>
+
+        <!-- Slide 8  -->
+
         <a-plane position="70 1.843 -2.663" scale="1.947 1 1" material="src: #slide8" geometry="" rotation="">
             <a-entity id="a14" geometry="primitive: plane"
                 animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter; dur: 200"
@@ -359,6 +396,9 @@
                 material="src: #arrow; side: back; transparent: true" position="0.70446 -0.006 -0.05926"
                 scale="0.16726 0.36777 -0.105"></a-entity></a-entity>
         </a-plane>
+
+        <!-- Slide 9  -->
+
         <a-plane position="80 1.843 -2.663" scale="1.947 1 1" material="src: #slide9" geometry="" rotation="">
             <a-entity id="a16" geometry="primitive: plane"
                 animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter; dur: 200"
@@ -371,45 +411,30 @@
                 material="src: #arrow; side: back; transparent: true" position="0.70446 -0.006 -0.05926"
                 scale="0.16726 0.36777 -0.105"></a-entity></a-entity>
         </a-plane>
+
+        <!-- Slide 10  -->
+
         <a-plane position="90 1.843 -2.663" scale="1.947 1 1" material="src: #slide10" geometry="" rotation="">
             <a-entity id="a18" geometry="primitive: plane"
                 animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter; dur: 200"
                 animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 200"
                 material="src: #arrow; side: double; transparent: true" position="-0.64809 -0.006 -0.05926"
                 scale="0.16726 0.36777 -0.105" rotation="0 0 180"></a-entity>
-            <!-- <a-entity id="a19" geometry="primitive: plane"
-                animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter; dur: 200"
-                animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 200"
-                material="src: #arrow; side: back; transparent: true" position="0.70446 -0.006 -0.05926"
-                scale="0.16726 0.36777 -0.105"></a-entity></a-entity> -->
         </a-plane>
-        <!-- <a-plane position="100 1.843 -2.663" scale="1.947 1 1" material="src: #slide11" geometry="" rotation="">
-            <a-entity id="a20" geometry="primitive: plane"
-                animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter; dur: 200"
-                animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 200"
-                material="src: #arrow; side: double; transparent: true" position="-0.64809 -0.006 -0.05926"
-                scale="0.16726 0.36777 -0.105" rotation="0 0 180"></a-entity>
-            <a-entity id="a21" geometry="primitive: plane"
-                animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter; dur: 200"
-                animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 200"
-                material="src: #arrow; side: back; transparent: true" position="0.70446 -0.006 -0.05926"
-                scale="0.16726 0.36777 -0.105"></a-entity></a-entity>
-        </a-plane>
-        <a-plane position="110 1.843 -2.663" scale="1.947 1 1" material="src: #slide12" geometry="" rotation="">
-            <a-entity id="a22" geometry="primitive: plane"
-                animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter; dur: 200"
-                animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 200"
-                material="src: #arrow; side: double; transparent: true" position="-0.64809 -0.006 -0.05926"
-                scale="0.16726 0.36777 -0.105" rotation="0 0 180"></a-entity>
-        </a-plane> -->
+
+        <!-- Add more slides if need be. Just copy the previous code and paste under this comment -->
+
         <!-- Objects -->
+
         <a-sphere material="ambientOcclusionMap: #moon_texture; emissive: #000000; roughness: 1; sphericalEnvMap: #moon_texture; src: #moon_texture" geometry="" position="-2.451 2.357 -3.736" id="moon" animation="property: rotation; to: 0 -360 0; loop: true; dur: 100000; easing: linear" rotation="0.13 -124.02 0.02" scale="0.068 0.058 0.068"></a-sphere>
         <a-gltf-model src="#xwing" animation-mixer="" position="8.268 -0.059 -5.077" scale="0.16 0.17 0.16" rotation="63.341 -43.961 26.809">
         </a-gltf-model>
         <a-sphere material="src: #astroid" geometry="primitive: dodecahedron" position="20.318 1.279 -2.04" scale="0.158 0.148 0.158" animation="property: position; to: 20.4 2 -2.1; loop: true; dur: 100000; easing: linear"></a-sphere>
         <a-gltf-model src="#astroids" animation-mixer="" position="30.124 1.593 -2.367" scale="0.113 0.12 0.123" rotation="-38.552 -160.52600000000004 -12.139" gltf-model="/assets/astroids.gltf"></a-gltf-model>
         <a-gltf-model src="#astronaut" animation="property: rotation; to: 360 -2.247 -0.17; loop: true; dur: 20000" animation-mixer="" position="40.631 2.062 -2.267" scale="0.05 0.053 0.055" rotation="-360 -2.247 -0.17"></a-gltf-model>
+
         <!-- A-Frame House -->
+
         <!-- <a-gltf-model src="#aframe" position="59.999 1.74 -2.267" scale="0.193 0.193 0.183" rotation="-0.08200000000000002 -31.088999999999995 -0.149"></a-gltf-model> -->
     </a-scene>
 </body>
