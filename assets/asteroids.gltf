@@ -865,7 +865,7 @@
     "buffers" : [
         {
             "byteLength" : 329888,
-            "uri" : "astroids.bin"
+            "uri" : "asteroids.bin"
         }
     ]
 }
