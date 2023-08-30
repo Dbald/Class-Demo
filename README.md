@@ -1,4 +1,4 @@
 # XR-Slides
 
 Example
-https://dbald.github.io/XR-PowerPoint/
+https://dbald.github.io/XR-Slides/
