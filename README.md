@@ -1,4 +1,5 @@
 # XR Slides
+Example: https://dbald.github.io/XR-Slides/
 
 ## Overview
 XR Slides is a web-based slideshow application designed for immersive virtual reality (VR) presentations, utilizing the powerful A-Frame framework. This innovative tool allows presenters to engage large audiences with interactive and dynamic content in a VR environment. It has been successfully used to deliver a presentation to an audience of 500 people.
